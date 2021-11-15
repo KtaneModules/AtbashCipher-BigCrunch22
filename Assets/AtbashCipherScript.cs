@@ -80,7 +80,7 @@ public class AtbashCipherScript : MonoBehaviour {
 	void ResetInputs()
 	{
 		ResetButton.AddInteractionPunch(.2f);
-		Audio.PlayGameSoundAtTransform(KMSoundOverride.SoundEffect.BigButtonPress, transform);
+		Audio.PlayGameSoundAtTransform(KMSoundOverride.SoundEffect.BigButtonPress, ResetButton.transform);
 		if (!ModuleSolved && !Loading)
 		{
 			TheOutput = "";
@@ -184,4 +184,26 @@ public class AtbashCipherScript : MonoBehaviour {
 			ResetButton.OnInteract();
 		}
 	}
+
+	IEnumerator TwitchHandleForcedSolve()
+    {
+		while (Loading) yield return true;
+		string TheRightWay = "";
+		for (int x = 0; x < 15; x++)
+			TheRightWay += RegularAlphabet[25 - Array.IndexOf(RegularAlphabet, TheInput[x].ToString())];
+		for (int i = 0; i < TheOutput.Length; i++)
+        {
+			if (TheOutput[i] != TheRightWay[i])
+            {
+				ResetButton.OnInteract();
+				yield return new WaitForSeconds(.1f);
+            }
+        }
+		int start = TheOutput.Length;
+		for (int i = start; i < TheRightWay.Length; i++)
+        {
+			MainButtons[Array.IndexOf(ShuffleThings, TheRightWay[i].ToString())].OnInteract();
+			yield return new WaitForSeconds(.1f);
+		}
+    }
 }
