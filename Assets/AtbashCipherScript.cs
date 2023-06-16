@@ -160,6 +160,7 @@ public class AtbashCipherScript : MonoBehaviour {
         string[] parameters = command.Split(' ');
         if (Regex.IsMatch(parameters[0], @"^\s*submit\s*$", RegexOptions.IgnoreCase | RegexOptions.CultureInvariant))
         {
+            yield return null;
             if (parameters.Length != 2)
             {
                 yield return "sendtochaterror Parameter length is invalid. Command ignored.";
