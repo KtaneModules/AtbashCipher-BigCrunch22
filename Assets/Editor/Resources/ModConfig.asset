@@ -14,8 +14,8 @@ MonoBehaviour:
   id: AtbashCipher
   title: Atbash Cipher
   author: BigCrunch22
-  description: "\"R nvnliravw Zgyzhs! - cerulean\"\r\n(Re)Implementor - BigCrunch22\r\n\r\nRecreation
-    of the deleted module created by Eltrick\r\n\r\nIf someone wants to add TP Support/Logging/Anything
+  description: "\"R nvnliravw Zgyzhs! - cerulean\"\r\n\r\nIdea - cerulean\r\nImplementor
+    - BigCrunch22\r\n\r\nTP Supported!\r\n\r\nIf someone wants to add TP Support/Logging/Anything
     useful, you have my approval for that."
   version: 1.0
   outputFolder: build
